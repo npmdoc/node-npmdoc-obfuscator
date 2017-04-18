@@ -1,0 +1,837 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/stephenmathieson/node-obfuscator"
+
+    >obfuscator (v0.5.4)</a>
+</h1>
+<h4>Code protection / obfuscation for node</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.obfuscator">module obfuscator</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.obfuscator">
+            function <span class="apidocSignatureSpan"></span>obfuscator
+            <span class="apidocSignatureSpan">(options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.ObfuscatorOptions">
+            function <span class="apidocSignatureSpan">obfuscator.</span>ObfuscatorOptions
+            <span class="apidocSignatureSpan">(files, root, entry, strings)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.Options">
+            function <span class="apidocSignatureSpan">obfuscator.</span>Options
+            <span class="apidocSignatureSpan">(files, root, entry, strings)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.concatenate">
+            function <span class="apidocSignatureSpan">obfuscator.</span>concatenate
+            <span class="apidocSignatureSpan">(options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.options">
+            function <span class="apidocSignatureSpan">obfuscator.</span>options
+            <span class="apidocSignatureSpan">(files, root, entry, strings)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.register">
+            function <span class="apidocSignatureSpan">obfuscator.</span>register
+            <span class="apidocSignatureSpan">(root, file, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.toString">
+            function <span class="apidocSignatureSpan">obfuscator.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">obfuscator.</span>utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">obfuscator.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.obfuscator.obfuscator">module obfuscator.obfuscator</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.obfuscator.obfuscator">
+            function <span class="apidocSignatureSpan">obfuscator.</span>obfuscator
+            <span class="apidocSignatureSpan">(options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.obfuscator.ObfuscatorOptions">
+            function <span class="apidocSignatureSpan">obfuscator.obfuscator.</span>ObfuscatorOptions
+            <span class="apidocSignatureSpan">(files, root, entry, strings)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.obfuscator.Options">
+            function <span class="apidocSignatureSpan">obfuscator.obfuscator.</span>Options
+            <span class="apidocSignatureSpan">(files, root, entry, strings)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.obfuscator.concatenate">
+            function <span class="apidocSignatureSpan">obfuscator.obfuscator.</span>concatenate
+            <span class="apidocSignatureSpan">(options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.obfuscator.options">
+            function <span class="apidocSignatureSpan">obfuscator.obfuscator.</span>options
+            <span class="apidocSignatureSpan">(files, root, entry, strings)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.obfuscator.register">
+            function <span class="apidocSignatureSpan">obfuscator.obfuscator.</span>register
+            <span class="apidocSignatureSpan">(root, file, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">obfuscator.obfuscator.</span>utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">obfuscator.obfuscator.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.obfuscator.utils">module obfuscator.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.utils.ast">
+            function <span class="apidocSignatureSpan">obfuscator.utils.</span>ast
+            <span class="apidocSignatureSpan">(js, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.utils.compress">
+            function <span class="apidocSignatureSpan">obfuscator.utils.</span>compress
+            <span class="apidocSignatureSpan">(ast, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.utils.hex">
+            function <span class="apidocSignatureSpan">obfuscator.utils.</span>hex
+            <span class="apidocSignatureSpan">(str)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.utils.uglify">
+            function <span class="apidocSignatureSpan">obfuscator.utils.</span>uglify
+            <span class="apidocSignatureSpan">(js, opts, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.obfuscator" id="apidoc.module.obfuscator">module obfuscator</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.obfuscator" id="apidoc.element.obfuscator.obfuscator">
+        function <span class="apidocSignatureSpan"></span>obfuscator
+        <span class="apidocSignatureSpan">(options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function obfuscator(options, cb) {
+  if (!options.files || !options.root || !options.entry) {
+    return cb(new TypeError(&#x27;Invalid options&#x27;));
+  }
+
+  obfuscator.concatenate(options, function (err, code) {
+    if (err) {
+      return cb(err);
+    }
+
+    utils.uglify(code, options, cb);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.ObfuscatorOptions" id="apidoc.element.obfuscator.ObfuscatorOptions">
+        function <span class="apidocSignatureSpan">obfuscator.</span>ObfuscatorOptions
+        <span class="apidocSignatureSpan">(files, root, entry, strings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ObfuscatorOptions = function (files, root, entry, strings) {
+  // TODO support globbling
+  if (!Array.isArray(files) || !files.length) {
+    throw new TypeError(&#x27;Invalid files array&#x27;);
+  }
+
+  if (typeof root !== &#x27;string&#x27; || !root) {
+    throw new TypeError(&#x27;Invalid root directory&#x27;);
+  }
+
+  if (typeof entry !== &#x27;string&#x27; || !entry) {
+    throw new TypeError(&#x27;Invalid entry point&#x27;);
+  }
+
+  return {
+    files: files,
+    root: root,
+    entry: dotslash(entry),
+    strings: strings
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.Options" id="apidoc.element.obfuscator.Options">
+        function <span class="apidocSignatureSpan">obfuscator.</span>Options
+        <span class="apidocSignatureSpan">(files, root, entry, strings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Options = function (files, root, entry, strings) {
+  // TODO support globbling
+  if (!Array.isArray(files) || !files.length) {
+    throw new TypeError(&#x27;Invalid files array&#x27;);
+  }
+
+  if (typeof root !== &#x27;string&#x27; || !root) {
+    throw new TypeError(&#x27;Invalid root directory&#x27;);
+  }
+
+  if (typeof entry !== &#x27;string&#x27; || !entry) {
+    throw new TypeError(&#x27;Invalid entry point&#x27;);
+  }
+
+  return {
+    files: files,
+    root: root,
+    entry: dotslash(entry),
+    strings: strings
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.concatenate" id="apidoc.element.obfuscator.concatenate">
+        function <span class="apidocSignatureSpan">obfuscator.</span>concatenate
+        <span class="apidocSignatureSpan">(options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">concatenate = function (options, cb) {
+  var entry = dotslash(path.relative(options.root, options.entry));
+  var index = -1;
+  var built = [];
+
+  function complete() {
+    // export the exported stuff from entry
+    built.push(&#x27;this_module.exports = require(&#x22;&#x27; + entry + &#x27;&#x22;);&#x27;);
+    // end iffe
+    built.push(&#x27;}(require, module));&#x27;);
+    // done :)
+    cb(null, built.join(&#x27;\n&#x27;));
+  }
+
+  // begin iffe with access to node&#x27;s native
+  // require and the current module
+  built.push(&#x27;(function (native_require, this_module) {&#x27;);
+  // add the `require` shim
+  built.push(__require);
+
+  (function next() {
+    index++;
+    var file = options.files[index];
+
+    // no remaining files?
+    if (!file) {
+      return complete();
+    }
+
+    // register the file
+    obfuscator.register(options.root, file, function (err, data) {
+      if (err) {
+        return cb(err);
+      }
+
+      built.push(data);
+      next();
+    });
+  }());
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.options" id="apidoc.element.obfuscator.options">
+        function <span class="apidocSignatureSpan">obfuscator.</span>options
+        <span class="apidocSignatureSpan">(files, root, entry, strings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">options = function (files, root, entry, strings) {
+  // TODO support globbling
+  if (!Array.isArray(files) || !files.length) {
+    throw new TypeError(&#x27;Invalid files array&#x27;);
+  }
+
+  if (typeof root !== &#x27;string&#x27; || !root) {
+    throw new TypeError(&#x27;Invalid root directory&#x27;);
+  }
+
+  if (typeof entry !== &#x27;string&#x27; || !entry) {
+    throw new TypeError(&#x27;Invalid entry point&#x27;);
+  }
+
+  return {
+    files: files,
+    root: root,
+    entry: dotslash(entry),
+    strings: strings
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.register" id="apidoc.element.obfuscator.register">
+        function <span class="apidocSignatureSpan">obfuscator.</span>register
+        <span class="apidocSignatureSpan">(root, file, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">register = function (root, file, cb) {
+  var filename = dotslash(path.relative(root, file));
+
+  fs.readFile(file, &#x27;utf-8&#x27;, function (err, data) {
+    if (err) {
+      return cb(err);
+    }
+
+    var code =
+        &#x27;require.register(&#x22;&#x27; + filename + &#x27;&#x22;,&#x27;
+      + &#x27;function (module, exports, require) {&#x27;
+      + (rJSON.test(file)
+          // just export json
+          ? &#x27;module.exports = &#x27; + data + &#x27;;&#x27;
+          // add the file as is
+          : data) + &#x27;\n&#x27;
+      + &#x27;});&#x27;;
+    return cb(null, code);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.toString" id="apidoc.element.obfuscator.toString">
+        function <span class="apidocSignatureSpan">obfuscator.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.obfuscator.obfuscator" id="apidoc.module.obfuscator.obfuscator">module obfuscator.obfuscator</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.obfuscator.obfuscator" id="apidoc.element.obfuscator.obfuscator.obfuscator">
+        function <span class="apidocSignatureSpan">obfuscator.</span>obfuscator
+        <span class="apidocSignatureSpan">(options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function obfuscator(options, cb) {
+  if (!options.files || !options.root || !options.entry) {
+    return cb(new TypeError(&#x27;Invalid options&#x27;));
+  }
+
+  obfuscator.concatenate(options, function (err, code) {
+    if (err) {
+      return cb(err);
+    }
+
+    utils.uglify(code, options, cb);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.obfuscator.ObfuscatorOptions" id="apidoc.element.obfuscator.obfuscator.ObfuscatorOptions">
+        function <span class="apidocSignatureSpan">obfuscator.obfuscator.</span>ObfuscatorOptions
+        <span class="apidocSignatureSpan">(files, root, entry, strings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ObfuscatorOptions = function (files, root, entry, strings) {
+  // TODO support globbling
+  if (!Array.isArray(files) || !files.length) {
+    throw new TypeError(&#x27;Invalid files array&#x27;);
+  }
+
+  if (typeof root !== &#x27;string&#x27; || !root) {
+    throw new TypeError(&#x27;Invalid root directory&#x27;);
+  }
+
+  if (typeof entry !== &#x27;string&#x27; || !entry) {
+    throw new TypeError(&#x27;Invalid entry point&#x27;);
+  }
+
+  return {
+    files: files,
+    root: root,
+    entry: dotslash(entry),
+    strings: strings
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.obfuscator.Options" id="apidoc.element.obfuscator.obfuscator.Options">
+        function <span class="apidocSignatureSpan">obfuscator.obfuscator.</span>Options
+        <span class="apidocSignatureSpan">(files, root, entry, strings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Options = function (files, root, entry, strings) {
+  // TODO support globbling
+  if (!Array.isArray(files) || !files.length) {
+    throw new TypeError(&#x27;Invalid files array&#x27;);
+  }
+
+  if (typeof root !== &#x27;string&#x27; || !root) {
+    throw new TypeError(&#x27;Invalid root directory&#x27;);
+  }
+
+  if (typeof entry !== &#x27;string&#x27; || !entry) {
+    throw new TypeError(&#x27;Invalid entry point&#x27;);
+  }
+
+  return {
+    files: files,
+    root: root,
+    entry: dotslash(entry),
+    strings: strings
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.obfuscator.concatenate" id="apidoc.element.obfuscator.obfuscator.concatenate">
+        function <span class="apidocSignatureSpan">obfuscator.obfuscator.</span>concatenate
+        <span class="apidocSignatureSpan">(options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">concatenate = function (options, cb) {
+  var entry = dotslash(path.relative(options.root, options.entry));
+  var index = -1;
+  var built = [];
+
+  function complete() {
+    // export the exported stuff from entry
+    built.push(&#x27;this_module.exports = require(&#x22;&#x27; + entry + &#x27;&#x22;);&#x27;);
+    // end iffe
+    built.push(&#x27;}(require, module));&#x27;);
+    // done :)
+    cb(null, built.join(&#x27;\n&#x27;));
+  }
+
+  // begin iffe with access to node&#x27;s native
+  // require and the current module
+  built.push(&#x27;(function (native_require, this_module) {&#x27;);
+  // add the `require` shim
+  built.push(__require);
+
+  (function next() {
+    index++;
+    var file = options.files[index];
+
+    // no remaining files?
+    if (!file) {
+      return complete();
+    }
+
+    // register the file
+    obfuscator.register(options.root, file, function (err, data) {
+      if (err) {
+        return cb(err);
+      }
+
+      built.push(data);
+      next();
+    });
+  }());
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.obfuscator.options" id="apidoc.element.obfuscator.obfuscator.options">
+        function <span class="apidocSignatureSpan">obfuscator.obfuscator.</span>options
+        <span class="apidocSignatureSpan">(files, root, entry, strings)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">options = function (files, root, entry, strings) {
+  // TODO support globbling
+  if (!Array.isArray(files) || !files.length) {
+    throw new TypeError(&#x27;Invalid files array&#x27;);
+  }
+
+  if (typeof root !== &#x27;string&#x27; || !root) {
+    throw new TypeError(&#x27;Invalid root directory&#x27;);
+  }
+
+  if (typeof entry !== &#x27;string&#x27; || !entry) {
+    throw new TypeError(&#x27;Invalid entry point&#x27;);
+  }
+
+  return {
+    files: files,
+    root: root,
+    entry: dotslash(entry),
+    strings: strings
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.obfuscator.register" id="apidoc.element.obfuscator.obfuscator.register">
+        function <span class="apidocSignatureSpan">obfuscator.obfuscator.</span>register
+        <span class="apidocSignatureSpan">(root, file, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">register = function (root, file, cb) {
+  var filename = dotslash(path.relative(root, file));
+
+  fs.readFile(file, &#x27;utf-8&#x27;, function (err, data) {
+    if (err) {
+      return cb(err);
+    }
+
+    var code =
+        &#x27;require.register(&#x22;&#x27; + filename + &#x27;&#x22;,&#x27;
+      + &#x27;function (module, exports, require) {&#x27;
+      + (rJSON.test(file)
+          // just export json
+          ? &#x27;module.exports = &#x27; + data + &#x27;;&#x27;
+          // add the file as is
+          : data) + &#x27;\n&#x27;
+      + &#x27;});&#x27;;
+    return cb(null, code);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.obfuscator.utils" id="apidoc.module.obfuscator.utils">module obfuscator.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.utils.ast" id="apidoc.element.obfuscator.utils.ast">
+        function <span class="apidocSignatureSpan">obfuscator.utils.</span>ast
+        <span class="apidocSignatureSpan">(js, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">ast = function (js, cb) {
+  try {
+    var ast = uglifyjs.parse(js);
+    cb(null, ast);
+  } catch (err) {
+    var e = new Error(err.message);
+    // cheap hack to use actual errors
+    // rather than the indecipherable JS_Parse_Error garbage
+    merge(e, err);
+    // expose the bad js
+    e.source = js;
+    cb(e);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.utils.compress" id="apidoc.element.obfuscator.utils.compress">
+        function <span class="apidocSignatureSpan">obfuscator.utils.</span>compress
+        <span class="apidocSignatureSpan">(ast, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">compress = function (ast, opts) {
+  opts = opts || exports.compress.defaults;
+  var compressor = uglifyjs.Compressor(opts);
+  // for some stupid reason, this is the
+  // only non-modifier method...
+  return ast.transform(compressor);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.utils.hex" id="apidoc.element.obfuscator.utils.hex">
+        function <span class="apidocSignatureSpan">obfuscator.utils.</span>hex
+        <span class="apidocSignatureSpan">(str)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hex = function (str) {
+  var result = &#x27;&#x27;;
+
+  for (var i = 0, l = str.length; i &#x3c; l; i++) {
+    var char = str[i];
+
+    if (map[char]) {
+      result += map[char];
+    } else if (&#x27;\\&#x27; == char) {
+      result += &#x27;\\&#x27; + str[++i];
+    } else {
+      result += &#x27;\\x&#x27; + str.charCodeAt(i).toString(16);
+    }
+  }
+  return result;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.obfuscator.utils.uglify" id="apidoc.element.obfuscator.utils.uglify">
+        function <span class="apidocSignatureSpan">obfuscator.utils.</span>uglify
+        <span class="apidocSignatureSpan">(js, opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">uglify = function (js, opts, cb) {
+
+<span class="apidocCodeCommentSpan">  /**
+   * Handle mangling and compression of the generated `AST`
+   *
+   * @api private
+   * @param {Error} err
+   * @param {AST} ast
+   */
+</span>
+  function handleAST(err, ast) {
+    if (err) return cb(err);
+
+    var stream = new uglifyjs.OutputStream;
+
+    ast.figure_out_scope();
+    ast.mangle_names();
+    ast = exports.compress(ast, opts.compressor);
+
+    if (opts.strings) {
+      ast = mangleStrings(ast);
+      // disable uglify&#x27;s string escaping to prevent
+      // double escaping our hex
+      stream.print_string = function (str) {
+        return this.print(&#x27;&#x22;&#x27; + str + &#x27;&#x22;&#x27;);
+      };
+    }
+
+    ast.print(stream);
+    return cb(null,  stream.toString());
+  }
+
+  if (typeof opts === &#x27;function&#x27;) {
+    cb = opts;
+    opts = {};
+  }
+
+  // build the AST
+  exports.ast(js, handleAST);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
