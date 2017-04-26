@@ -110,15 +110,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.obfuscator.toString">
-            function <span class="apidocSignatureSpan">obfuscator.</span>toString
-            <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">obfuscator.</span>utils</span>
 
         </li>
@@ -333,7 +324,23 @@
     strings: strings
   };
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- `Options`
+- `ObfuscatorOptions`
+
+
+Examples:
+
+```js
+var opts = new obfuscator.<span class="apidocCodeKeywordSpan">Options</span>(
+// files
+[ './myfile.js', './mydir/thing.js'],
+// root
+'./',
+// entry
+'myfile.js',
+// strings
+...</pre></li>
     </ul>
 
 
@@ -385,7 +392,23 @@
     });
   }());
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+
+function obfuscator(options, cb) {
+  if (!options.files || !options.root || !options.entry) {
+    return cb(new TypeError('Invalid options'));
+  }
+
+  obfuscator.<span class="apidocCodeKeywordSpan">concatenate</span>(options, function (err, code) {
+    if (err) {
+      return cb(err);
+    }
+
+    utils.uglify(code, options, cb);
+  });
+}
+...</pre></li>
     </ul>
 
 
@@ -418,7 +441,23 @@
     strings: strings
   };
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+*  options   `Object` The options
+*  cb   `Function` Callback: `function (err, obfuscated)`
+
+Obfuscate and concatenate a NodeJS _"package"_
+because corporate says so.
+
+###  `obfuscator.<span class="apidocCodeKeywordSpan">options</span>(files, root, entry, [strings])`
+
+#### Parameters
+
+*  files   `Array` The files contained in the package
+*  root   `String` The root of the package
+*  entry   `String` The entry point
+*  [strings]   `Boolean` Shall strings be obfuscated
+...</pre></li>
     </ul>
 
 
@@ -450,22 +489,23 @@
     return cb(null, code);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
+    <li>example usage<pre class="apidocCodePre">...
 
+  fs.readFile(file, 'utf-8', function (err, data) {
+if (err) {
+  return cb(err);
+}
 
-
-    <h2>
-        <a href="#apidoc.element.obfuscator.toString" id="apidoc.element.obfuscator.toString">
-        function <span class="apidocSignatureSpan">obfuscator.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">toString = function () {
-    return text;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+var code =
+    'require.<span class="apidocCodeKeywordSpan">register</span>("' + filename + '",'
+  + 'function (module, exports, require) {'
+  + (rJSON.test(file)
+      // just export json
+      ? 'module.exports = ' + data + ';'
+      // add the file as is
+      : data) + '\n'
+  + '});';
+...</pre></li>
     </ul>
 
 
@@ -565,7 +605,23 @@
     strings: strings
   };
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+- `Options`
+- `ObfuscatorOptions`
+
+
+Examples:
+
+```js
+var opts = new obfuscator.<span class="apidocCodeKeywordSpan">Options</span>(
+// files
+[ './myfile.js', './mydir/thing.js'],
+// root
+'./',
+// entry
+'myfile.js',
+// strings
+...</pre></li>
     </ul>
 
 
@@ -617,7 +673,23 @@
     });
   }());
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ */
+
+function obfuscator(options, cb) {
+  if (!options.files || !options.root || !options.entry) {
+    return cb(new TypeError('Invalid options'));
+  }
+
+  obfuscator.<span class="apidocCodeKeywordSpan">concatenate</span>(options, function (err, code) {
+    if (err) {
+      return cb(err);
+    }
+
+    utils.uglify(code, options, cb);
+  });
+}
+...</pre></li>
     </ul>
 
 
@@ -650,7 +722,23 @@
     strings: strings
   };
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+*  options   `Object` The options
+*  cb   `Function` Callback: `function (err, obfuscated)`
+
+Obfuscate and concatenate a NodeJS _"package"_
+because corporate says so.
+
+###  `obfuscator.<span class="apidocCodeKeywordSpan">options</span>(files, root, entry, [strings])`
+
+#### Parameters
+
+*  files   `Array` The files contained in the package
+*  root   `String` The root of the package
+*  entry   `String` The entry point
+*  [strings]   `Boolean` Shall strings be obfuscated
+...</pre></li>
     </ul>
 
 
@@ -682,7 +770,23 @@
     return cb(null, code);
   });
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  fs.readFile(file, 'utf-8', function (err, data) {
+if (err) {
+  return cb(err);
+}
+
+var code =
+    'require.<span class="apidocCodeKeywordSpan">register</span>("' + filename + '",'
+  + 'function (module, exports, require) {'
+  + (rJSON.test(file)
+      // just export json
+      ? 'module.exports = ' + data + ';'
+      // add the file as is
+      : data) + '\n'
+  + '});';
+...</pre></li>
     </ul>
 
 
@@ -717,7 +821,22 @@
     cb(e);
   }
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+ if (typeof opts === 'function') {
+   cb = opts;
+   opts = {};
+ }
+
+ // build the AST
+ exports.<span class="apidocCodeKeywordSpan">ast</span>(js, handleAST);
+};
+
+
+/**
+* Escape map.
+*/
+...</pre></li>
     </ul>
 
 
@@ -736,7 +855,23 @@
   // only non-modifier method...
   return ast.transform(compressor);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  function handleAST(err, ast) {
+if (err) return cb(err);
+
+var stream = new uglifyjs.OutputStream;
+
+ast.figure_out_scope();
+ast.mangle_names();
+ast = exports.<span class="apidocCodeKeywordSpan">compress</span>(ast, opts.compressor);
+
+if (opts.strings) {
+  ast = mangleStrings(ast);
+  // disable uglify's string escaping to prevent
+  // double escaping our hex
+  stream.print_string = function (str) {
+    return this.print('"' + str + '"');
+...</pre></li>
     </ul>
 
 
@@ -764,7 +899,22 @@
   }
   return result;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  'myfile.js',
+  // strings
+  true)
+
+var opts = obfuscator.options({...})
+```
+
+###  `obfuscator.utils.<span class="apidocCodeKeywordSpan">hex</span>(str)`
+
+#### Parameters
+
+*  str   `String`
+
+#### Returns
+...</pre></li>
     </ul>
 
 
@@ -816,7 +966,23 @@
   // build the AST
   exports.ast(js, handleAST);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+
+  obfuscator.concatenate(options, function (err, code) {
+    if (err) {
+      return cb(err);
+    }
+
+    utils.<span class="apidocCodeKeywordSpan">uglify</span>(code, options, cb);
+  });
+}
+
+// back-compat alias
+obfuscator.obfuscator = obfuscator;
+
+/**
+...</pre></li>
     </ul>
 
 
