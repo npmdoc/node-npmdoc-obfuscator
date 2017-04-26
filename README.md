@@ -1,6 +1,6 @@
 # npmdoc-obfuscator
 
-#### api documentation for  [obfuscator (v0.5.4)](https://github.com/stephenmathieson/node-obfuscator)  [![npm package](https://img.shields.io/npm/v/npmdoc-obfuscator.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-obfuscator) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-obfuscator.svg)](https://travis-ci.org/npmdoc/node-npmdoc-obfuscator)
+#### basic api documentation for  [obfuscator (v0.5.4)](https://github.com/stephenmathieson/node-obfuscator)  [![npm package](https://img.shields.io/npm/v/npmdoc-obfuscator.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-obfuscator) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-obfuscator.svg)](https://travis-ci.org/npmdoc/node-npmdoc-obfuscator)
 
 #### Code protection / obfuscation for node
 
